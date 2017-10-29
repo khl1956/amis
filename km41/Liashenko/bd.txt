@@ -1,0 +1,15 @@
+create user admin IDENTIFIED by 1234
+default tabelspace users
+temporary tabelspace temp
+
+alter user admin quota 100m on users;
+
+grant create sessions to admin
+
+grant create table to admin
+
+grant create user to admin
+
+grant delete any table to admin;
+grant drop any user to admin;
+grant drop profile to admin;
