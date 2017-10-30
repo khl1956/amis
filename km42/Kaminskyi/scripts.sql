@@ -16,7 +16,7 @@ VALUES ('User', 'user_1@gmail.com', 'user_1', 'pass_1', TO_DATE('2016/06/01','yy
 
 -- INSERT LESSOR
 INSERT INTO "USER" ("ROLE", "EMAIL","LOGIN","PASSWORD","DRIVER_LICENCE","NUMBER_DRIVER_LICENCE", "FIRSTNAME", "LASTNAME","PHONE_NUMBER","BIRTHDAY", "RATING")
-VALUES ('lessor', 'lessor_1@gmail.com', 'lessor_1', 'lessor_pass_1', TO_DATE('2011/04/02','yyyy/mm/dd'), 'BBB123456', 'lessor_firstname_1', 'lessor_lastname_1', '0501434567', TO_DATE('1980/11/22','yyyy/mm/dd'), '7')  
+VALUES ('lessor', 'lessor_1@gmail.com', 'lessor_1', 'lessor_pass_1', TO_DATE('2011/04/02','yyyy/mm/dd'), 'BBB123456', 'lessor_firstname_1', 'lessor_lastname_1', '0501434567', TO_DATE('1980/11/22','yyyy/mm/dd'), '7');  
 
 
 -- INSERT Admin
