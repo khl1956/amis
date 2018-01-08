@@ -1,0 +1,60 @@
+alter table "BOOK"
+   drop constraint FK_BOOKING_REFERENCE_BOOK;
+
+alter table "BOOK"
+   drop constraint FK_BOOKING_TO_BOOK_F_USER;
+
+alter table "BOOK"
+   drop constraint FK_BOOKING_TO_LEASE__USER;
+
+drop table "RENT" cascade constraints;
+
+drop table "BOOK" cascade constraints;
+
+drop table "User" cascade constraints;
+
+/*==============================================================*/
+/* Table: "List"                                             */
+/*==============================================================*/
+create table "RENT" 
+(
+   "book_id"          NUMBER(8)            not null,
+   "user_email"         CHAR(25),
+   "user_type"          SMALLINT,
+   constraint PK_RENT primary key ("book_id", "user_email, "user_type")
+);
+
+/*==============================================================*/
+/* Table: "BOOK"                                                */
+/*==============================================================*/
+create table "BOOK" 
+(
+   "book_name"             CHAR(25),
+   "book_author"	        CHAR(25)             not null,
+   "book_id"          NUMBER(8)            not null,
+   constraint PK_FLAT primary key ("book_id")
+);
+
+/*==============================================================*/
+/* Table: "User"                                                */
+/*==============================================================*/
+create table "User" 
+(
+   "user_login"    	CHAR(25)             not null,
+   "user_email"         CHAR(25)             not null,
+   "user_password"      CHAR(25)             not null,
+   "user_type"          SMALLINT             not null,
+   constraint PK_USER primary key ("user_email", "user_type")
+);
+
+alter table "BOOK"
+   add constraint FK_BOOKING_REFERENCE_CAR foreign key ("book_id")
+      references "BOOK" ("book_id");
+
+alter table "BOOK"
+   add constraint FK_BOOKING_TO_BOOK_F_USER foreign key ("Use_user_email", "Use_user_type")
+      references "User" ("user_email", "user_type");
+
+alter table "BOOK"
+   add constraint FK_BOOKING_TO_LEASE__USER foreign key ("user_email", "user_type")
+      references "User" ("user_email", "user_type")
